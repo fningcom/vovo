@@ -21,12 +21,6 @@ docker-compose up -d
 # Перейти в директорию проекта
 cd vovo
 
-# Создать файл окружения
-cp .env.example .env
-
-# Сгенерировать ключ приложения
-php artisan key:generate
-
 # Настроить параметры базы данных в .env файле
 DB_CONNECTION=mysql
 DB_HOST=mysql
