@@ -4,6 +4,48 @@
 
 Возвращает список товаров с возможностью фильтрации, сортировки и пагинации.
 
+## Подготовка к тестированию
+
+### Запуск приложения
+
+```bash
+# Клонировать репозиторий
+git clone https://github.com/fningcom/vovo.git
+
+# Собрать образ Docker
+docker-compose build
+
+# Запустить контейнеры
+docker-compose up -d
+
+# Перейти в директорию проекта
+cd vovo
+
+# Создать файл окружения
+cp .env.example .env
+
+# Сгенерировать ключ приложения
+php artisan key:generate
+
+# Настроить параметры базы данных в .env файле
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel
+DB_PASSWORD=password
+
+# Установить зависимости
+docker-compose run composer install
+
+# Запустить миграции
+docker-compose run artisan migrate
+
+# Заполнить базу тестовыми данными
+docker-compose run artisan db:seed
+
+```
+
 ### URL
 ```
 GET /api/products
